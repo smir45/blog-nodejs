@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Blog-node</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title mb-1 mt-5"><%= article.title %></h1>
+      <div class="test-muted mb-2"><%= article.publishedAt.toLocaleDateString() %></div>
+      <a href="/" class="btn btn-lg btn-outline-secondary mt-5 mb-5">All Articles</a>
+    
+    <div>
+        <%- article.sanitizedHtml %>
+    </div>
+    <a href="/articles/edit/<%= article.slug %>" class="btn btn-outline-info">Edit</a>
+    </div>
+    
+  </body>
+</html>

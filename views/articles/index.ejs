@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Blog-node</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title m-5">Blog-node</h1>
+      <a class="btn btn-lg btn-dark m-5 mt-0 h-25" href="/articles/new">New Article</a>
+      <div class="d-flex">
+      <% articles.forEach(article => { %>
+      <div class="card m-5 shadow p-3 mb-5 bg-white rounded overflow-hidden" style="width: 18rem">
+        <div class="card-body">
+          <h2 class="card-title"><%= article.title %></h2>
+          <p class="date"><%= article.publishedAt.toLocaleDateString() %></p>
+          <p class="card-text"><%= article.description %></p>
+          <a href="articles/<%= article.slug %>" class="btn btn-outline-secondary">Read More</a>
+          
+
+          <form class="d-inline" action="/articles/<%= article.id %>?_method=DELETE" method="POST" >
+            <button type="submit" class="btn btn-outline-danger ">Delete</button>
+          </form>
+        </div>
+        
+      </div>
+
+      <% }) %>
+    </div>
+    </div>
+  </body>
+</html>
