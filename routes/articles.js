@@ -7,7 +7,7 @@ router.get("/new", (req, res) => {
   res.render ('articles/new', {article: new Article()});
 })
 
-
+// setting up router for slug
 
 router.get('/:slug', async (req, res) => {
   const article = await Article.findOne({slug: req.params.slug})
