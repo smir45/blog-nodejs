@@ -18,7 +18,7 @@ router.get('/:slug', async (req, res) => {
 })
 
 
-
+// setting up routes for article deletion
 
 router.delete('/:id', async (req, res) => {
   await Article.findByIdAndDelete(req.params.id)
