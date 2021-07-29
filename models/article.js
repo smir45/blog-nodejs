@@ -49,4 +49,4 @@ articleSchema.pre("validate", function (next) {
 
 module.exports = mongoose.model("Article", articleSchema);
 
-//this is the schema
+//this is the schema for
