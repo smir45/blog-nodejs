@@ -27,4 +27,5 @@ app.get("/", async (req, res) => {
   res.render("articles/index", { articles: articles });
 });
 app.use("/articles", articleRouter);
+console.log("server Started")
 app.listen(5000);
