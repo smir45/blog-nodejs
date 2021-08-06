@@ -9,7 +9,7 @@ router.get("/new", (req, res) => {
   res.render ('articles/new', {article: new Article()});
 })
 
-// setting up router for slug
+// setting up router for slug- getting posts
 
 router.get('/:slug', async (req, res) => {
   const article = await Article.findOne({slug: req.params.slug})
@@ -22,6 +22,13 @@ router.get('/:slug', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   await Article.findByIdAndDelete(req.params.id)
+  res.redirect('/')
+})
+
+
+// setting up routes for article editing
+router.put('/:id', async (req, res) => {
+  await Article.findByIdAndUpdate(req.params.id, req.body)
   res.redirect('/')
 })
 
